@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Barang;
 
-
-
-class BarangController extends Controller
+class LogAcController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +13,7 @@ class BarangController extends Controller
      */
     public function index()
     {
-        $barang = barang::all();
-        return view('admin.barang', compact('barang'));
+        //
     }
 
     /**
@@ -27,7 +23,7 @@ class BarangController extends Controller
      */
     public function create()
     {
-        return view('admin.tambah_barang');
+        //
     }
 
     /**
@@ -38,16 +34,7 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nama_sampah' => 'required',
-            'satuan' => 'required',
-            'harga' => 'required',
-            'deskripsi' => 'required',
-        ]);
-
-        Barang::create($request->all());
-
-        return redirect('/barang')->with('status', 'Data Barang Berhasil Ditambahkan!');
+        //
     }
 
     /**
@@ -58,11 +45,7 @@ class BarangController extends Controller
      */
     public function show($id)
     {
-        return view('admin.edit_barang',
-        [
-            'title' => 'Edit Barang',
-            'barang' => Barang::findOrFail($id)
-        ]);
+        //
     }
 
     /**
@@ -85,14 +68,7 @@ class BarangController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Barang::where('id', $id)
-            ->update([
-                'nama_sampah' => $request->nama_sampah,
-                'satuan' => $request->satuan,
-                'harga' => $request->harga,
-                'deskripsi' => $request->deskripsi,
-            ]);
-        return redirect('/barang')->with('status', 'Data Barang Berhasil Diubah!');
+        //
     }
 
     /**
@@ -103,8 +79,6 @@ class BarangController extends Controller
      */
     public function destroy($id)
     {
-        Barang::destroy($id);
-        return redirect('/barang')->with('status', 'Data Barang Warga Berhasil Dihapus!');
+        //
     }
-
 }

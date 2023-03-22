@@ -56,46 +56,10 @@
     <div class="container">
         <ul class="list-group text-center shadow-lg">
             <li class="list-group-item"><a href="/warga" style="text-decoration:none; ">Data Warga</a> </li>
-            <li class="list-group-item"><a href="/saldosampah" style="text-decoration:none; ">Saldo Sampah Warga</a>
-            </li>
             <li class="list-group-item"><a href="/barang" style="text-decoration:none; ">Manajmenet Sampah</a>
         </ul>
     </div>
 
-    {{--  <div class="center">
-    <div class="menubox">
-      <a href="/karyawan">
-        <img src="/assets/images/Data Pegawai.png" alt="data pegawai">
-      </a>
-    </div><br>
-
-    <div class="menubox">
-      <a href="/izin">
-        <img src="/assets/images/Perizinan.png" alt="perizinan">
-      </a>
-    </div><br>
-
-    <div class="menubox">
-      <a href="/pelanggaran">
-        <img src="/assets/images/Point Pelanggaran.png" alt="point pelanggaran">
-      </a>
-    </div><br>
-
-    <div class="menubox">
-      <a href="/karyawan/create">
-        <img src="/assets/images/Tambah Pegawai Baru.png" alt="tambah pegawai baru">
-      </a>
-    </div>
-  </div>  --}}
-
-    {{--  <div class="btnbox">
-    <div class="btnlogout">
-      <form action="/logout" method="post">
-        @csrf
-        <button type="submit" class="btnlogout">LogOut</button>
-      </form>
-    </div>
-  </div>  --}}
 
 
 </body>

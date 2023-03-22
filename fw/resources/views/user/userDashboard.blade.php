@@ -81,43 +81,13 @@
     <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color: hsl(0, 0%, 96%)">
         <div class="container">
             <div class="row gx-lg-5 align-items-center">
-                {{-- <div class="col-lg-6 mb-5 mb-lg-0">
-                    <div class="container px-6 " style="width:30rem; padding-top:100px;">
-                        <div class="card text-center shadow-lg ">
-                            <div class="card-header">
-                                Data Pegawai
-                            </div>
-                            <div class="card-body">
-                                <img src="../assets/images/img2.png" style="width: 200px; height:200px;" alt="">
-                                <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional
-                                    content.</p>
-                                <a href="/karyawan"" class="btn btn-primary col-md-5">Data Pegawai</a>
-
-                            </div>
-                        </div>
-
-                    </div>
-                </div> --}}
-
-                <div class="col-lg-6 mb-5 mb-lg-0">
-                    <div class="container px-6 " style="width:30rem; padding-top:100px;">
-                        <div class="card text-center shadow-lg ">
-                            <div class="card-header">
-                                Sampah Warga
-                            </div>
-                            <div class="card-body">
-                                <img src="../assets/images/img2.png" style="width: 200px; height:200px;" alt="">
-
-                                <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional
-                                    content.</p>
-                                <a href="/barang" class="btn btn-primary col-md-5">Data Perizinan</a>
-
-                            </div>
-                        </div>
-
-                    </div>
+                <div class="container">
+                    <ul class="list-group text-center shadow-lg">
+                        <li class="list-group-item"><a href="/warga" style="text-decoration:none; ">Data Warga</a>
+                        </li>
+                        <li class="list-group-item"><a href="/barang" style="text-decoration:none; ">Manajmenet
+                                Sampah</a>
+                    </ul>
                 </div>
             </div>
         </div>

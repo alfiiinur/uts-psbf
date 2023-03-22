@@ -30,8 +30,11 @@ class DatabaseSeeder extends Seeder
         // $this->call(
         //         WargaSeeder::class,
         // );
+        // $this->call(
+        //         BarangSeeder::class,
+        // );
         $this->call(
-                BarangSeeder::class,
+                LogAcSeeder::class,
         );
     }
 }

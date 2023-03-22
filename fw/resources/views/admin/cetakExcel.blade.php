@@ -72,11 +72,11 @@
     <h1 class=" text-center my-5 display-3 fw-bold ls-tight">
         Cetak Daftar Warga<br />
     </h1>
-    <div class="container">
+    <div class="container" id="table">
 
 
 
-        <table class="table table-hover table-bordered results" id="table">
+        <table class="table table-hover table-bordered results">
             <thead>
                 {{-- <a href="/cetakPdf" class="btn btn-info me-2 my-3 py-2 shadow-lg " target="_blank">Cetak</a> --}}
                 <tr>
@@ -127,6 +127,7 @@
             </tbody>
 
         </table>
+        <button onclick="ExportToExcel('xlsx')" class="btn btn-outline-primary">Export</button>
         {{-- <nav aria-label="Page navigation example" class="">
             <ul class="pagination pg-blue">
                 <li class="page-item ">
@@ -158,7 +159,7 @@
                     bookSST: true,
                     type: 'base64'
                 }) :
-                XLSX.writeFile(wb, fn || ('DataWarga.' + (type || 'xlsx')));
+                XLSX.writeFile(wb, fn || ('Data_Warga.' + (type || 'xlsx')));
         }
 
 

@@ -71,7 +71,7 @@
     <h1 class=" text-center my-5 display-3 fw-bold ls-tight">
         Cetak Daftar Warga<br />
     </h1>
-    <div class="container">
+    <div class="container" id="exportContent">
 
 
 
@@ -126,6 +126,7 @@
             </tbody>
 
         </table>
+        <button onclick="Export2Word('exportContent', 'Data Warga');" class="btn btn-outline-primary">Export</button>
         {{-- <nav aria-label="Page navigation example" class="">
             <ul class="pagination pg-blue">
                 <li class="page-item ">
@@ -146,55 +147,42 @@
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
     </script>
     <script>
-        function exportHTML() {
-            var header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' " +
-                "xmlns:w='urn:schemas-microsoft-com:office:word' " +
-                "xmlns='http://www.w3.org/TR/REC-html40'>" +
-                "<head><meta charset='utf-8'><title>Export HTML to Word Document with JavaScript</title></head><body>";
-            var footer = "</body></html>";
-            var sourceHTML = header + document.getElementById("table").innerHTML + footer;
+        function Export2Word(element, filename = '') {
+            var preHtml =
+                "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
+            var postHtml = "</body></html>";
+            var html = preHtml + document.getElementById(element).innerHTML + postHtml;
 
-            var source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(sourceHTML);
-            var fileDownload = document.createElement("a");
-            document.body.appendChild(fileDownload);
-            fileDownload.href = source;
-            fileDownload.download = 'document.doc';
-            fileDownload.click();
-            document.body.removeChild(fileDownload);
-        }
-
-
-        $(document).ready(function() {
-            $(".search").keyup(function() {
-                var searchTerm = $(".search").val();
-                var listItem = $('.results tbody').children('tr');
-                var searchSplit = searchTerm.replace(/ /g, "'):containsi('")
-
-                $.extend($.expr[':'], {
-                    'containsi': function(elem, i, match, array) {
-                        return (elem.textContent || elem.innerText || '').toLowerCase().indexOf(
-                            (match[3] || "").toLowerCase()) >= 0;
-                    }
-                });
-
-                $(".results tbody tr").not(":containsi('" + searchSplit + "')").each(function(e) {
-                    $(this).attr('visible', 'false');
-                });
-
-                $(".results tbody tr:containsi('" + searchSplit + "')").each(function(e) {
-                    $(this).attr('visible', 'true');
-                });
-
-                var jobCount = $('.results tbody tr[visible="true"]').length;
-                $('.counter').text(jobCount + ' item');
-
-                if (jobCount == '0') {
-                    $('.no-result').show();
-                } else {
-                    $('.no-result').hide();
-                }
+            var blob = new Blob(['\ufeff', html], {
+                type: 'application/msword'
             });
-        });
+
+            // Specify link url
+            var url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html);
+
+            // Specify file name
+            filename = filename ? filename + '.doc' : 'document.doc';
+
+            // Create download link element
+            var downloadLink = document.createElement("a");
+
+            document.body.appendChild(downloadLink);
+
+            if (navigator.msSaveOrOpenBlob) {
+                navigator.msSaveOrOpenBlob(blob, filename);
+            } else {
+                // Create a link to the file
+                downloadLink.href = url;
+
+                // Setting the file name
+                downloadLink.download = filename;
+
+                //triggering the function
+                downloadLink.click();
+            }
+
+            document.body.removeChild(downloadLink);
+        }
     </script>
 </body>
 
